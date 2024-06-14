@@ -53,7 +53,7 @@ cron.schedule('* * * * *', async () => {
 const sendToWebhook = async (messages) => {
     try {
         // Aquí debes reemplazar 'http://tu-webhook-url' con la URL de tu webhook
-        const webhookUrl = 'http://tu-webhook-url';
+        const webhookUrl = 'https://webhook.site/4ec66d67-96eb-49e2-a3e6-6507b0e4d34d';
         
         // Realizar solicitud HTTP POST utilizando axios
         const response = await axios.post(webhookUrl, messages);
