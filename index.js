@@ -72,8 +72,15 @@ const sendToWebhook = async (messages) => {
 // Función para obtener mensajes de la base de datos
 const getMessagesFromDatabase = async () => {
     try {
-        const mensajes = await Message.find();
+
+        // cambiar el valor de el estatus a enviado 
+        await Message.updateMany({}, { $set: { status: "enviado" } });
+
+        // recuperar los datos con status enviado
+        const mensajes = await Message.find({ status: "enviado" });
+
         return mensajes;
+
     } catch (error) {
         console.error('Error al obtener mensajes de la base de datos:', error);
         return [];
